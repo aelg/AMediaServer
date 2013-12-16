@@ -8,6 +8,8 @@ import json
 import re
 from flask import render_template
 
+f = open('config.json')
+config = json.loads(f.read())
 videoFile = 'videoList.dat'
 
 def readVideos():
@@ -25,7 +27,8 @@ def index():
 @app.route('/update')
 def update():
     global videoFile
-    videoDirs = ['/home/aelg/']
+    global config
+    videoDirs = config['videoDirs']
     videos = []
     for v in videoDirs:
         for dirpath, dirnames, filenames in walk(v):
