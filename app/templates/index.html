@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Aelg Media Server</title>
+  </head>
+  <body>
+  {% for i,v in videos %}
+  <a href="/play/{{i}}">{{v}}</a><br />
+  {% endfor %}
+  <a href="/stop">Stop Playing</a>
+  </body>
+</html>
