@@ -1,6 +1,6 @@
-from app import playHandles
-from app import closeAll
 from app import app
+from app import closeAll
+from app import playHandles
 from subprocess import Popen
 from subprocess import call
 from os import walk
@@ -47,7 +47,7 @@ def play(i):
     global playHandles
     videos = readVideos()
     closeAll()
-
+    
     p = Popen(['/usr/bin/omxplayer', videos[i]['dir'] + '/' + videos[i]['name']])
     playHandles.append(p)
     return render_template('play.html', name = videos[i]['name'])
