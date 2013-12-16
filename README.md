@@ -3,7 +3,7 @@ AMediaServer
 
 Lightweight media server for Raspberry Pi running Arch Linux, using flask and omxplayer.
 
-This is barely working, videos starts but they do not close, but if you're interested feel free to ask or help.
+This is barely working, but if you're interested feel free to ask or help.
 
 Setup
 
