@@ -1,9 +1,8 @@
 from app import app
-from app import closeAll
-from app import playHandles
+from app import globalData
 from subprocess import Popen
 from subprocess import call
-from os import walk
+from os import walk,path
 import json
 import re
 from flask import render_template
@@ -44,16 +43,45 @@ def update():
 
 @app.route('/play/<int:i>')
 def play(i):
-    global playHandles
+    global globalData
     videos = readVideos()
-    closeAll()
     
-    p = Popen(['/usr/bin/omxplayer', videos[i]['dir'] + '/' + videos[i]['name']])
-    playHandles.append(p)
+    globalData.player.play(videos[i]['dir'] + '/' + videos[i]['name'])
     return render_template('play.html', name = videos[i]['name'])
     
 
-@app.route('/stop')
+@app.route('/player/stop')
 def stop():
-    closeAll()
-    return render_template('stop.html')
+    stoppedVideo = path.basename(globalData.player.path)
+    globalData.player.stop()
+    return render_template('stop.html', stoppedVideo=stoppedVideo)
+
+@app.route('/player/pause')
+def pause():
+    pausedVideo = path.basename(globalData.player.path)
+    globalData.player.pause()
+    return render_template('showMessage.html', message='Paused ' + pausedVideo)
+
+@app.route('/player/short_forward')
+def short_forward():
+    pausedVideo = path.basename(globalData.player.path)
+    globalData.player.short_forward()
+    return render_template('showMessage.html', message='Paused ' + pausedVideo)
+
+@app.route('/player/long_forward')
+def long_forward():
+    pausedVideo = path.basename(globalData.player.path)
+    globalData.player.long_forward()
+    return render_template('showMessage.html', message='Paused ' + pausedVideo)
+
+@app.route('/player/short_backward')
+def short_backward():
+    pausedVideo = path.basename(globalData.player.path)
+    globalData.player.short_backward()
+    return render_template('showMessage.html', message='Paused ' + pausedVideo)
+
+@app.route('/player/long_backward')
+def long_backward():
+    pausedVideo = path.basename(globalData.player.path)
+    globalData.player.long_backward()
+    return render_template('showMessage.html', message='Paused ' + pausedVideo)

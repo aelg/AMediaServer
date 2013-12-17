@@ -2,9 +2,25 @@
 <html>
   <head>
     <title>Aelg Media Server</title>
+    <script type="text/javascript">
+    <!--
+    function playerCommand(cmd){
+      xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("GET", '/player/' + cmd, false);
+      xmlHttp.send(null);
+      return false;
+    }
+    -->
+    </script>
   </head>
   <body>
   Playing {{name}} <br />
-  <a href="/stop">Stop Playing</a> <a href="/">To Video List</a>
+  <a href="/">To Video List</a><br /><br /><br /><br />
+  <a href='' onclick="playerCommand('long_backward');return false;">&lt;&lt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href='' onclick="playerCommand('short_backward');return false;">&lt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href='' onclick="playerCommand('pause');return false;">Pause</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href='' onclick="playerCommand('stop');return false;">Stop</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href='' onclick="playerCommand('short_forward');return false;">&gt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href='' onclick="playerCommand('long_forward');return false;">&gt;&gt;</a>
   </body>
 </html>
