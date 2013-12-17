@@ -49,6 +49,11 @@ def play(i):
     globalData.player.play(videos[i]['dir'] + '/' + videos[i]['name'])
     return render_template('play.html', name = videos[i]['name'])
     
+@app.route('/player')
+def player():
+    global globalData
+    playingVideo = path.basename(globalData.player.path)
+    return render_template('play.html', name = playingVideo)
 
 @app.route('/player/stop')
 def stop():
