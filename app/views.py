@@ -13,8 +13,16 @@ def index():
     return render_template('index.html')
 
 @app.route('/js/fileList.js')
-def fileList():
+def fileList_js():
   return send_file('js/fileList.js')
+
+@app.route('/js/player.js')
+def player_js():
+  return send_file('js/player.js')
+
+@app.route('/css/default.css')
+def default_css():
+  return send_file('css/default.css')
 
 @app.route('/getDirs')
 def getDirs():
@@ -32,13 +40,6 @@ def play(i):
     globalData.player.play(i)
     return redirect('/player')
     
-@app.route('/player')
-def player():
-    global globalData
-    player = globalData.player
-    playingVideo = path.basename(player.getCurrentName())
-    return render_template('play.html', name = playingVideo, time=player.getTime())
-
 @app.route('/player/stop')
 def stop():
     global globalData

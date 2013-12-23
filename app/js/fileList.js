@@ -13,6 +13,8 @@ function getDirs(){
 function folderClick(event){
   if (event.target == this){
     if(this.children.length == 0){
+      this.innerHTML = '- ' + this.dirList.name;
+
       addFiles(this);
     }
     else{
@@ -36,20 +38,18 @@ function addFiles(div){
       div.appendChild(elem);
   }
   for(var i = 0; i < t.files.length; ++i){
-    var elem = document.createElement('a')
+    var elem = document.createElement('div')
       elem.innerHTML = t.files[i].file;
     elem.onclick = fileClick;
     elem.file = t.files[i];
     elem.className = "file"
       div.appendChild(elem);
   }
-
 }
 var folder;
 function initFileList(){
   var fileList = document.getElementById('fileList');
   fileList.dirList = getDirs();
   fileList.className = 'folder';
-  fileList.onclick = folderClick;
   addFiles(fileList);
 }

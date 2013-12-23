@@ -2,21 +2,37 @@
 <html>
   <head>
     <title>Aelg Media Server</title>
-    <style type="text/css">
-    .folder {padding-left: 40px; background-color: #ffdddd; cursor: pointer;}
-    .file {display: block; padding-left: 40px; background-color: #ddffdd; cursor: pointer;}
-    .file:hover {text-decoration: underline;}
-    </style>
+
+    <link rel="stylesheet" type="text/css" href="/css/default.css" />
+
     <script type="text/javascript" src="/js/fileList.js"></script>
+    <script type="text/javascript" src="/js/player.js"></script>
     <script type="text/javascript">
     window.onload = function(){
-      initFileList()
+      initFileList();
+      initPlayer();
     }
     </script>
+
   </head>
+
   <body>
-  <a href="/player">Player</a> <a href="/update">Update Video List</a><br /><br />
+  <div id="container">
   <div id="fileList" class="folder">
+  <a href="/update">Update Video List</a><br /><br />
   </div>
+
+  <div class="player">
+    <div id="playerInfo"></div>
+    <div>
+    <a href='' onclick="playerCommand('long_backward');return false;">&lt;&lt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href='' onclick="playerCommand('short_backward');return false;">&lt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href='' onclick="playerCommand('pause');return false;">Pause</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href='' onclick="playerCommand('stop');return false;">Stop</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href='' onclick="playerCommand('short_forward');return false;">&gt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href='' onclick="playerCommand('long_forward');return false;">&gt;&gt;</a>
+  </div>
+  </div>
+
   </body>
 </html>
