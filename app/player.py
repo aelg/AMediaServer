@@ -13,6 +13,7 @@ class Player(object):
     self.process = None
     self.path = ''
     self.name = ''
+    self.isPlaying = False
     self.currentVideo = 0
     self.videoList = self.readVideos(globalData.config['videoListFile'])
 
@@ -95,15 +96,18 @@ class Player(object):
     self.name = ''
     self.process = None
 
-    try:
-      self.play(self.currentVideo + 1)
-    except:
-      pass
+    if isPlaying:
+      try:
+        self.play(self.currentVideo + 1)
+      except:
+        pass
 
   def play(self, i):
     global globalData
     if self.process :
       self.stop()
+
+    self.isPlaying = True
 
     video = self.findVideo(i)
     self.path = video['path']
@@ -113,6 +117,7 @@ class Player(object):
     self.currentVideo = i
 
   def stop(self):
+    self.isPlaying = False
     if self.process: 
       self.process.terminate()
     self.path = ''

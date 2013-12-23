@@ -56,13 +56,15 @@
 
     }
     var folder;
-    window.onload = function(){
+    function initFileList(){
       var fileList = document.getElementById('fileList');
       fileList.dirList = getDirs();
       fileList.className = 'folder';
       fileList.onclick = folderClick;
       addFiles(fileList);
-      return;
+    }
+    window.onload = function(){
+      initFileList()
     }
     </script>
   </head>
