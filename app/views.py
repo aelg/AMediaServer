@@ -4,12 +4,17 @@ from os import path
 import re
 from flask import render_template
 from flask import redirect
+from flask import send_file
 from flask import jsonify
 
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template('index.html')
+
+@app.route('/js/fileList.js')
+def fileList():
+  return send_file('js/fileList.js')
 
 @app.route('/getDirs')
 def getDirs():
