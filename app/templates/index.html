@@ -2,12 +2,80 @@
 <html>
   <head>
     <title>Aelg Media Server</title>
+    <style type="text/css">
+    .folder {padding-left: 40px; background-color: #ffdddd; cursor: pointer;}
+    .file {display: block; padding-left: 40px; background-color: #ddffdd; cursor: pointer;}
+    .file:hover {text-decoration: underline;}
+    </style>
+    <script type="text/javascript">
+    function playIndex(index){
+      xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("GET", '/play/' + index.toString(), false);
+      xmlHttp.send(null);
+      return false;
+    }
+    function getDirs(){
+      xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("GET", '/getDirs', false);
+      xmlHttp.send(null);
+      return JSON.parse(xmlHttp.response);
+    }
+    function folderClick(event){
+      if (event.target == this){
+        if(this.children.length == 0){
+          addFiles(this);
+        }
+        else{
+          this.innerHTML = '+ ' + this.dirList.name;
+        }
+      }
+      return false;
+    }
+    function fileClick(event){
+      playIndex(this.file.index)
+      return false;
+    }
+    function addFiles(div){
+      var t = div.dirList;
+      for(var i = 0; i < t.dirs.length; ++i){
+        var elem = document.createElement('div')
+        elem.innerHTML = '+ ' + t.dirs[i].name;
+        elem.onclick = folderClick;
+        elem.dirList = t.dirs[i];
+        elem.className = "folder"
+        div.appendChild(elem);
+      }
+      for(var i = 0; i < t.files.length; ++i){
+        var elem = document.createElement('a')
+        elem.innerHTML = t.files[i].file;
+        elem.onclick = fileClick;
+        elem.file = t.files[i];
+        elem.className = "file"
+        div.appendChild(elem);
+      }
+
+    }
+    var folder;
+    window.onload = function(){
+      var fileList = document.getElementById('fileList');
+      folder = getDirs();
+      s = '';
+      for (var i = 0; i < folder.dirs.length;++i){
+        for (var j = 0; j < folder.dirs[i].dirs.length;++j){
+          var elem = document.createElement('div');
+          elem.innerHTML = '+ ' + folder.dirs[i].dirs[j].name;
+          elem.onclick = folderClick;
+          elem.dirList = folder.dirs[i].dirs[j];
+          fileList.appendChild(elem);
+        }
+      }
+      return;
+    }
+    </script>
   </head>
   <body>
-  <a href="/player">Player</a><br /><br />
-  {% for i,v in videos %}
-  <a href="/play/{{i}}">{{v}}</a><br />
-  {% endfor %}
-  <a href="/stop">Stop Playing</a>
+  <a href="/player">Player</a> <a href="/update">Update Video List</a><br /><br />
+  <div id="fileList" class="folder">
+  </div>
   </body>
 </html>
