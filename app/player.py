@@ -64,10 +64,11 @@ class Player(object):
 
     videoDirs = globalData.config['videoDirs']
     index = 0
-    videos = {'start': index, 'dirs': [], 'files': []}
+    videos = {'start': index, 'dirs': [], 'files': [], 'path': '/'}
     for v in videoDirs:
       index, dirs = traverse(index, v)
       if dirs['start'] == dirs['end']: continue
+      dirs['name'] = v
       videos['dirs'].append(dirs)
 
     self.videoList = videos

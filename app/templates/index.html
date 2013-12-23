@@ -58,17 +58,10 @@
     var folder;
     window.onload = function(){
       var fileList = document.getElementById('fileList');
-      folder = getDirs();
-      s = '';
-      for (var i = 0; i < folder.dirs.length;++i){
-        for (var j = 0; j < folder.dirs[i].dirs.length;++j){
-          var elem = document.createElement('div');
-          elem.innerHTML = '+ ' + folder.dirs[i].dirs[j].name;
-          elem.onclick = folderClick;
-          elem.dirList = folder.dirs[i].dirs[j];
-          fileList.appendChild(elem);
-        }
-      }
+      fileList.dirList = getDirs();
+      fileList.className = 'folder';
+      fileList.onclick = folderClick;
+      addFiles(fileList);
       return;
     }
     </script>
