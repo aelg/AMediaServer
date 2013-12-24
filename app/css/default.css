@@ -9,12 +9,10 @@
 }
 .folder {
   padding-left: 40px;
-  padding-right: -40px;
   background-color: #ccffcc;
   cursor: pointer;}
 .file {
   padding-left: 40px;
-  padding-right: -40px;
   background-color: #ddffdd;
   cursor: pointer;}
 .file:hover {

@@ -28,7 +28,7 @@ class OMXPlayer(threading.Thread):
         #sleep(0.01)
         if self.process.poll() != None: break
         b = self.process.stdout.readline()
-        m = re.match(r'M:\s*([0-9]+)', b)
+        m = re.match(r'M:\s*([0-9]+) ', b)
         if m:
           self.time = int(float(m.group(1))/1000000)
     except:
