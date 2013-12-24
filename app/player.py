@@ -96,7 +96,7 @@ class Player(object):
     self.name = ''
     self.process = None
 
-    if isPlaying:
+    if self.isPlaying:
       try:
         self.play(self.currentVideo + 1)
       except:
@@ -152,3 +152,15 @@ class Player(object):
   def long_backward(self):
     if self.process:
       self.process.write('\x1b[B')
+
+  def next_video(self):
+    try:
+      self.play(self.currentVideo + 1)
+    except:
+      pass
+
+  def prev_video(self):
+    try:
+      self.play(self.currentVideo - 1)
+    except:
+      pass

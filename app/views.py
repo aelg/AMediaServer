@@ -76,6 +76,18 @@ def long_backward():
     globalData.player.long_backward()
     return ''
 
+@app.route('/player/next_video')
+def next_video():
+    global globalData
+    globalData.player.next_video()
+    return ''
+
+@app.route('/player/prev_video')
+def prev_video():
+    global globalData
+    globalData.player.prev_video()
+    return ''
+
 @app.route('/player/get_info')
 def get_data():
     global globalData

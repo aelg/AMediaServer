@@ -1,38 +1,40 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Aelg Media Server</title>
+<head>
+<title>Aelg Media Server</title>
 
-    <link rel="stylesheet" type="text/css" href="/css/default.css" />
+<link rel="stylesheet" type="text/css" href="/css/default.css" />
 
-    <script type="text/javascript" src="/js/fileList.js"></script>
-    <script type="text/javascript" src="/js/player.js"></script>
-    <script type="text/javascript">
-    window.onload = function(){
-      initFileList();
-      initPlayer();
-    }
-    </script>
+<script type="text/javascript" src="/js/fileList.js"></script>
+<script type="text/javascript" src="/js/player.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+  initFileList();
+  initPlayer();
+}
+</script>
 
-  </head>
+</head>
 
-  <body>
-  <div id="container">
+<body>
+<div id="container">
   <div id="fileList" class="folder">
-  <a href="/update">Update Video List</a><br /><br />
+    <a href="/update">Update Video List</a><br /><br />
   </div>
 
   <div class="player">
     <div id="playerInfo"></div>
     <div>
-    <a href='' onclick="playerCommand('long_backward');return false;">&lt;&lt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href='' onclick="playerCommand('short_backward');return false;">&lt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href='' onclick="playerCommand('pause');return false;">Pause</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href='' onclick="playerCommand('stop');return false;">Stop</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href='' onclick="playerCommand('short_forward');return false;">&gt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href='' onclick="playerCommand('long_forward');return false;">&gt;&gt;</a>
-  </div>
+      <a href='' onclick="playerCommand('prev_video');return false;">Prev</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href='' onclick="playerCommand('long_backward');return false;">&lt;&lt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href='' onclick="playerCommand('short_backward');return false;">&lt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href='' onclick="playerCommand('pause');return false;">Pause</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href='' onclick="playerCommand('stop');return false;">Stop</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href='' onclick="playerCommand('short_forward');return false;">&gt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href='' onclick="playerCommand('long_forward');return false;">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href='' onclick="playerCommand('next_video');return false;">Next</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
   </div>
 
   </body>
-</html>
+  </html>
