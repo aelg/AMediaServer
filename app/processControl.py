@@ -1,6 +1,7 @@
 import threading
 from time import sleep
 from subprocess import Popen,PIPE,STDOUT
+from os.path import exists
 import re
 
 class OMXPlayer(threading.Thread):
@@ -17,7 +18,10 @@ class OMXPlayer(threading.Thread):
 
   def run(self):
     self.running = True
-    self.process = Popen(['/usr/bin/omxplayer', '-s', self.filePath], stdin=PIPE, stdout=PIPE, stderr=STDOUT, bufsize = 1, universal_newlines=True)
+    if exists('/usr/bin/unbuffer'):
+      self.process = Popen(['unbuffer', '-p', 'omxplayer', '-s', self.filePath], stdin=PIPE, stdout=PIPE, bufsize = 1, universal_newlines=True)
+    else:
+      self.process = Popen(['omxplayer', '-s', self.filePath], stdin=PIPE, stdout=PIPE, bufsize = 1, universal_newlines=True)
     
     try:
       while self.process.returncode == None:

@@ -112,6 +112,7 @@ class Player(object):
     video = self.findVideo(i)
     self.path = video['path']
     self.name = video['file']
+    self.time = 0
     filePath = (self.path + '/' + self.name)
     self.process = OMXPlayer(filePath, self)
     self.currentVideo = i
