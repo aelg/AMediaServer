@@ -1,1 +1,1 @@
-{"videoDirs":["/home/aelg/", "/home/aelg/mnt"], "videoListFile":"videoList.dat"}
+{"videoDirs":{"aelg": "/home/aelg/", "mnt" : "/home/aelg/mnt"}, "videoListFile":"videoList.dat"}
