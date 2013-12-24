@@ -11,27 +11,28 @@ function getDirs(){
   return JSON.parse(xmlHttp.response);
 }
 function folderClick(event){
-  if (event.target == this){
-    if(this.children.length == 0){
-      this.innerHTML = '- ' + this.dirList.name;
-
-      addFiles(this);
-    }
-    else{
-      this.innerHTML = '+ ' + this.dirList.name;
-    }
+  if(typeof this.expanded == 'undefined' || this.expanded == false){
+    this.innerHTML = '<div class="icon">- </div><div class="folderName">' + this.dirList.name + '</div>';
+    this.expanded = true;
+    addFiles(this);
   }
+  else{
+    this.innerHTML = '<div class="icon">+ </div><div class="folderName">' + this.dirList.name + '</div>';
+    this.expanded = false;
+  }
+  event.stopPropagation();
   return false;
 }
 function fileClick(event){
   playIndex(this.file.index)
-    return false;
+  event.stopPropagation();
+  return false;
 }
 function addFiles(div){
   var t = div.dirList;
   for(var i = 0; i < t.dirs.length; ++i){
     var elem = document.createElement('div')
-      elem.innerHTML = '+ ' + t.dirs[i].name;
+      elem.innerHTML = '<div class="icon">+ </div><div class="folderName">' + t.dirs[i].name + '</div>';
     elem.onclick = folderClick;
     elem.dirList = t.dirs[i];
     elem.className = "folder"
