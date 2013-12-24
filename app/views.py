@@ -38,7 +38,7 @@ def update():
 def play(i):
     global globalData
     globalData.player.play(i)
-    return redirect('/player')
+    return ''
     
 @app.route('/player/stop')
 def stop():

@@ -25,5 +25,5 @@ function update(){
 var timerId = 0;
 function initPlayer(){
   update();
-  timerId = window.setInterval(update, 2000);
+  timerId = window.setInterval(update, 1000);
 }

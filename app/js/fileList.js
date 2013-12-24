@@ -47,10 +47,15 @@ function addFiles(div){
       div.appendChild(elem);
   }
 }
+function resize(){
+  document.getElementById('fileList').style.height = (document.getElementById('container').offsetHeight - document.getElementById('player').offsetHeight) + 'px';
+}
 var folder;
 function initFileList(){
   var fileList = document.getElementById('fileList');
   fileList.dirList = getDirs();
   fileList.className = 'folder';
   addFiles(fileList);
+  resize();
+  document.body.onresize = resize;
 }

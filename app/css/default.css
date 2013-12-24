@@ -19,27 +19,30 @@
   cursor: pointer;}
 .file:hover {
   text-decoration: underline;}
-.player {
+#player {
   text-align: center;
   position: absolute;
   background-color: #ddddff;
-  height: 20%; 
+  height: 150px; 
   width: 100%;
   margin: 0px;
   padding: 0px;
   bottom: 0px;}
+#playerInfo{
+  height: 100px;
+}
 #fileList {
   margin: 0px;
   padding: 0px;
-  position:absolute;
-  top: 0px;
-  height: 80%; 
+  position: absolute;
+  bottom: 150px;
+  height: 300px;
   width: 100%;
   overflow: auto;}
 #container {
   margin: 0px;
   padding: 0px;
-  position:absolute;
+  position: absolute;
   min-height: 100%;
   height: auto !important;
   width: 100%;
