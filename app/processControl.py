@@ -21,7 +21,7 @@ class OMXPlayer(threading.Thread):
     
     try:
       while self.process.returncode == None:
-        sleep(0.01)
+        #sleep(0.01)
         if self.process.poll() != None: break
         b = self.process.stdout.readline()
         m = re.match(r'M:\s*([0-9]+)', b)
@@ -37,7 +37,10 @@ class OMXPlayer(threading.Thread):
 
   def terminate(self):
     if self.process and self.running:
-      self.process.terminate();
+      self.process.terminate()
+      self.process.wait()
+      while self.running:
+        sleep(0.1)
 
   def write(self, s):
     if self.process and self.running:
