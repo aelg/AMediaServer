@@ -22,12 +22,14 @@ function update(){
     document.getElementById('playerInfo').innerHTML = s;
   }
   else{
-    document.getElementById('playerInfo').innerHTML = '<p>No video playing</p>';
+    var s = '<p>No video playing</p>';
+    s += '<p>Last played video: ' + /[^\/]*$/.exec(info.lastPlayedVideo)[0] + '</p>';
+    document.getElementById('playerInfo').innerHTML = s;
   }
   resize();
 }
 var timerId = 0;
 function initPlayer(){
   update();
-  timerId = window.setInterval(update, 30000);
+  timerId = window.setInterval(update, 10000);
 }

@@ -116,6 +116,9 @@ class Player(object):
     filePath = (self.path + '/' + self.name)
     self.process = OMXPlayer(filePath, self)
     self.currentVideo = i
+    with open(globalData.config['historyFile'], 'a+') as f:
+        f.write(filePath + '\n')
+    
 
   def stop(self):
     self.isPlaying = False
@@ -154,7 +157,7 @@ class Player(object):
                          'subtitleIndex': self.subtitleIndex,
                          'subtitleCount': self.subtitleCount})
     else:
-      return '{}'
+      return json.dumps({'lastPlayedVideo': self.lastPlayedVideo()})
   
   def pause(self):
     if self.process:
@@ -199,3 +202,13 @@ class Player(object):
       self.play(self.currentVideo - 1)
     except:
       pass
+  def lastPlayedVideo(self):
+      last = ''
+      try:
+          with open(globalData.config['historyFile']) as f:
+              for line in f:
+                  pass
+              last = line
+      except:
+          pass
+      return last
