@@ -64,4 +64,6 @@ body {
   overflow: hidden;}
 #controls {
   line-height: 200%;}
-
+.control_button{
+  margin-left: 20px;
+  margin-right: 20px;}
