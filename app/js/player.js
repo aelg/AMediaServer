@@ -16,14 +16,18 @@ function update(){
     s += (date.getUTCMinutes()<10?'0':'') + date.getUTCMinutes() + ':';
     s += (date.getUTCSeconds()<10?'0':'') + date.getUTCSeconds();
     s += '</p>';
+    s += '<p>Subtitles: ' + (info.subtitleOn?'On':'Off');
+    s += ' index: ' + info.subtitleIndex + '/' + info.subtitleCount;
+    s += '</p>';
     document.getElementById('playerInfo').innerHTML = s;
   }
   else{
     document.getElementById('playerInfo').innerHTML = '<p>No video playing</p>';
   }
+  resize();
 }
 var timerId = 0;
 function initPlayer(){
   update();
-  timerId = window.setInterval(update, 1000);
+  timerId = window.setInterval(update, 30000);
 }

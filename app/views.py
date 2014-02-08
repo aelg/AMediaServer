@@ -24,6 +24,10 @@ def player_js():
 def default_css():
   return send_file('css/default.css')
 
+@app.route('/img/trans.png')
+def trans_img():
+  return send_file('img/trans.png')
+
 @app.route('/getDirs')
 def getDirs():
   return jsonify(globalData.player.getVideoList())
@@ -86,6 +90,24 @@ def next_video():
 def prev_video():
     global globalData
     globalData.player.prev_video()
+    return ''
+
+@app.route('/player/prev_subtitle')
+def prev_subtitle():
+    global globalData
+    globalData.player.prev_subtitle()
+    return ''
+
+@app.route('/player/next_subtitle')
+def next_subtitle():
+    global globalData
+    globalData.player.next_subtitle()
+    return ''
+
+@app.route('/player/toggle_subtitle')
+def toggle_subtitle():
+    global globalData
+    globalData.player.toggle_subtitle()
     return ''
 
 @app.route('/player/get_info')

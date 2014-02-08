@@ -4,6 +4,7 @@
 <title>Aelg Media Server</title>
 
 <link rel="stylesheet" type="text/css" href="/css/default.css" />
+<meta name="viewport" content="width=device-width,user-scalable=no" />
 
 <script type="text/javascript" src="/js/fileList.js"></script>
 <script type="text/javascript" src="/js/player.js"></script>
@@ -24,17 +25,26 @@ window.onload = function(){
 
   <div id="player">
     <div id="playerInfo"></div>
-    <div>
-      <a href='' onclick="playerCommand('prev_video');return false;">Prev</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href='' onclick="playerCommand('long_backward');return false;">&lt;&lt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href='' onclick="playerCommand('short_backward');return false;">&lt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href='' onclick="playerCommand('pause');return false;">Pause</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href='' onclick="playerCommand('stop');return false;">Stop</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href='' onclick="playerCommand('short_forward');return false;">&gt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href='' onclick="playerCommand('long_forward');return false;">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href='' onclick="playerCommand('next_video');return false;">Next</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <div id="controls">
+      <div>
+        <button type"button" onclick="playerCommand('prev_subtitle');return false;">&lt;</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type"button" onclick="playerCommand('toggle_subtitle');return false;">Subtitles</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type"button" onclick="playerCommand('next_subtitle');return false;">&gt;</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+      <div>
+        <button type"button" onclick="playerCommand('long_backward');return false;">&lt;&lt;</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type"button" onclick="playerCommand('short_backward');return false;">&lt;</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type"button" onclick="playerCommand('pause');return false;">||</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type"button" onclick="playerCommand('short_forward');return false;">&gt;</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type"button" onclick="playerCommand('long_forward');return false;">&gt;&gt;</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+        <button type"button" onclick="playerCommand('prev_video');return false;">Prev</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type"button" onclick="playerCommand('stop');return false;">Stop</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type"button" onclick="playerCommand('next_video');return false;">Next</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div>
     </div>
   </div>
+</div>
 
-  </body>
-  </html>
+</body>
+</html>

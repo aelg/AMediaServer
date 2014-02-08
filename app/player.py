@@ -128,11 +128,38 @@ class Player(object):
     if self.process:
       return str(self.process.out)
 
+  def parseSubtitleMessage(self):
+    if self.process and self.process.running and self.process.subtitleMessage != '':
+      m = re.match(r'Subtitle count:[\s]*([0-9]*)', self.process.subtitleMessage)
+      if m:
+        self.subtitleCount = int(m.group(1))
+      m = re.search(r'state:[\s]*(on|off)', self.process.subtitleMessage)
+      if m:
+        self.subtitleOn = m.group(1) == 'on'
+      m = re.search(r'index:[\s]*([0-9]*)', self.process.subtitleMessage)
+      if m:
+        self.subtitleIndex = int(m.group(1))
+    else:
+      self.subtitleCount = 0
+      self.subtitleOn = False
+      self.subtitleIndex = 0
+
+
   def getInfo(self):
     if self.process and self.process.running:
-      return json.dumps({'name': self.name, 'time': self.process.time})
+      self.parseSubtitleMessage()
+      return json.dumps({'name': self.name, 
+                         'time': self.process.time, 
+                         'subtitleOn': self.subtitleOn, 
+                         'subtitleIndex': self.subtitleIndex,
+                         'subtitleCount': self.subtitleCount})
     else:
       return '{}'
+  
+  def printSubtitleMessage(self):
+    if self.process:
+      time.sleep(0.1)
+      print(self.process.subtitleMessage)
 
   def pause(self):
     if self.process:
@@ -153,6 +180,21 @@ class Player(object):
   def long_backward(self):
     if self.process:
       self.process.write('\x1b[B')
+
+  def next_subtitle(self):
+    if self.process:
+      self.process.write('m')
+      self.printSubtitleMessage()
+
+  def prev_subtitle(self):
+    if self.process:
+      self.process.write('n')
+      self.printSubtitleMessage()
+
+  def toggle_subtitle(self):
+    if self.process:
+      self.process.write('s')
+      self.printSubtitleMessage()
 
   def next_video(self):
     try:

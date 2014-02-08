@@ -1,4 +1,16 @@
-
+p,a,div{
+  background-image:url(/img/trans.png);
+}
+html,body {
+  position: absolute;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;}
+body {
+  font-size: medium;
+}
 .icon {
   position: absolute;
   display: inline;
@@ -8,11 +20,15 @@
   display: inline;
 }
 .folder {
-  padding-left: 40px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   background-color: #ccffcc;
   cursor: pointer;}
 .file {
-  padding-left: 40px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   background-color: #ddffdd;
   cursor: pointer;}
 .file:hover {
@@ -21,20 +37,21 @@
   text-align: center;
   position: absolute;
   background-color: #ddddff;
-  height: 150px; 
   width: 100%;
   margin: 0px;
-  padding: 0px;
+  padding: 10px;
   bottom: 0px;}
 #playerInfo{
-  height: 100px;
+  /*margin-top: 10px;*/
+}
+#playerInfo p{
+  margin: 2px;
+  padding 2px;
 }
 #fileList {
   margin: 0px;
   padding: 0px;
   position: absolute;
-  bottom: 150px;
-  height: 300px;
   width: 100%;
   overflow: auto;}
 #container {
@@ -45,11 +62,6 @@
   height: auto !important;
   width: 100%;
   overflow: hidden;}
+#controls {
+  line-height: 200%;}
 
-html,body {
-  position: absolute;
-  overflow: hidden;
-  margin: 0px;
-  padding: 0px;
-  height: 100%;
-  width: 100%;}

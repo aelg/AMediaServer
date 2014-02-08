@@ -9,6 +9,8 @@ class OMXPlayer(threading.Thread):
     threading.Thread.__init__(self)
     self.filePath = filePath
     self.time = 0
+    self.lastMessage = ''
+    self.subtitleMessage = ''
     self.out = ''
     self.process = None
     self.running = False
@@ -31,6 +33,12 @@ class OMXPlayer(threading.Thread):
         m = re.match(r'M:\s*([0-9]+) ', b)
         if m:
           self.time = int(float(m.group(1))/1000000)
+        m = re.match(r'[^M].*', b)
+        if m:
+          self.lastMessage = m.group(0)
+        m = re.match(r'Subtitle.*', b)
+        if m:
+          self.subtitleMessage = m.group(0)
     except:
       if self.process :
         self.process.terminate()
