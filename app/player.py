@@ -57,7 +57,7 @@ class Player(object):
           res['dirs'].append(dirs)
         del dirnames[:]
         for f in sorted(filenames):
-          if not re.search(r'.*\.(avi|mpeg|mpg|mkv)$', f): continue
+          if not re.search(r'.*\.(avi|mpeg|mpg|mkv|mp4)$', f): continue
           res['files'].append({'file': f, 'index': startIndex, 'path': dirpath})
           startIndex += 1
       res['end'] = startIndex
@@ -156,11 +156,6 @@ class Player(object):
     else:
       return '{}'
   
-  def printSubtitleMessage(self):
-    if self.process:
-      time.sleep(0.1)
-      print(self.process.subtitleMessage)
-
   def pause(self):
     if self.process:
       self.process.write(' ')
@@ -184,17 +179,14 @@ class Player(object):
   def next_subtitle(self):
     if self.process:
       self.process.write('m')
-      self.printSubtitleMessage()
 
   def prev_subtitle(self):
     if self.process:
       self.process.write('n')
-      self.printSubtitleMessage()
 
   def toggle_subtitle(self):
     if self.process:
       self.process.write('s')
-      self.printSubtitleMessage()
 
   def next_video(self):
     try:
