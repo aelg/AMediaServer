@@ -152,7 +152,8 @@ class Player(object):
     if self.process and self.process.running:
       self.parseSubtitleMessage()
       return json.dumps({'name': self.name, 
-                         'time': self.process.time, 
+                         'time': self.process.time,
+                         'length': self.process.length,
                          'subtitleOn': self.subtitleOn, 
                          'subtitleIndex': self.subtitleIndex,
                          'subtitleCount': self.subtitleCount})

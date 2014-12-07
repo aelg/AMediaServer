@@ -60,7 +60,7 @@ var folder;
 function initFileList(){
   var fileList = document.getElementById('fileList');
   fileList.dirList = getDirs();
-  fileList.className = 'folder';
+  fileList.className = 'jumbotron';
   addFiles(fileList);
   //if(window.mobilecheck()) document.body.style.fontSize = '30pt';
   resize();

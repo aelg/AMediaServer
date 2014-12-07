@@ -21,17 +21,23 @@ body {
 }
 .folder {
   padding-left: 10px;
+  padding-right: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  background-color: #ccffcc;
+  background-color: #ddf0dd;
+  border-radius: 6px;
   cursor: pointer;}
+.folder:hover {
+  background-color: #ddffdd;}
 .file {
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  background-color: #ddffdd;
+  background-color: #ffdddd;
+  border-radius: 6px;
   cursor: pointer;}
 .file:hover {
+  background-color: #f0dddd;
   text-decoration: underline;}
 #player {
   text-align: center;
@@ -41,16 +47,12 @@ body {
   margin: 0px;
   padding: 10px;
   bottom: 0px;}
-#playerInfo{
-  /*margin-top: 10px;*/
-}
 #playerInfo p{
   margin: 2px;
   padding 2px;
 }
 #fileList {
   margin: 0px;
-  padding: 0px;
   position: absolute;
   width: 100%;
   overflow: auto;}
@@ -64,6 +66,8 @@ body {
   overflow: hidden;}
 #controls {
   line-height: 200%;}
+#controls div {
+  margin-top: 5px;}
 .control_button{
-  margin-left: 20px;
-  margin-right: 20px;}
+  margin-left: 10px;
+  margin-right: 10px;}

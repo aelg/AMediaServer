@@ -7,6 +7,8 @@ from flask import redirect
 from flask import send_file
 from flask import jsonify
 
+bootstrapFolder = 'static/bootstrap/dist/'
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -19,6 +21,18 @@ def fileList_js():
 @app.route('/js/player.js')
 def player_js():
   return send_file('js/player.js')
+
+@app.route('/css/bootstrap.min.css')
+def bootstrap_css():
+  return send_file(bootstrapFolder + 'css/bootstrap.min.css');
+
+@app.route('/css/bootstrap-theme.min.css')
+def bootstrap_theme_css():
+  return send_file(bootstrapFolder + 'css/bootstrap-theme.min.css');
+
+@app.route('/js/bootstrap.min.js')
+def bootstrap_js():
+  return send_file(bootstrapFolder + 'js/bootstrap.min.js');
 
 @app.route('/css/default.css')
 def default_css():

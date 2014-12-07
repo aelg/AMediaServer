@@ -4,7 +4,21 @@
 <title>Aelg Media Server</title>
 
 <link rel="stylesheet" type="text/css" href="/css/default.css" />
-<meta name="viewport" content="width=device-width,user-scalable=no" />
+<!-- <meta name="viewport" content="width=device-width,user-scalable=no" /> -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap theme -->
+<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
 
 <script type="text/javascript" src="/js/fileList.js"></script>
 <script type="text/javascript" src="/js/player.js"></script>
@@ -17,33 +31,47 @@ window.onload = function(){
 
 </head>
 
-<body>
-<div id="container">
-  <div id="fileList" class="folder">
+<body role="document">
+<!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/update">Update Video List</a></li>
+      </ul>
+    </div>
+  </div>
+  </nav> -->
+<div class="container theme-showcase" id="container" role="main">
+  <div id="fileList" class="jumbotron">
     <a href="/update">Update Video List</a><br /><br />
   </div>
 
-  <div id="player">
+  <div id="player" class="jumbotron">
     <div id="playerInfo"></div>
     <div id="controls">
       <div>
-        <button class="control_button" type"button" onclick="playerCommand('prev_subtitle');return false;">&lt;</button>
-        <button class="control_button" type"button" onclick="playerCommand('toggle_subtitle');return false;">Subtitles</button>
-        <button class="control_button" type"button" onclick="playerCommand('next_subtitle');return false;">&gt;</button>
+        <button class="control_button btn btn-primary" type"button" onclick="playerCommand('prev_subtitle');return false;">&lt;</button>
+        <button class="control_button btn btn-primary" type"button" onclick="playerCommand('toggle_subtitle');return false;">Subtitles</button>
+        <button class="control_button btn btn-primary" type"button" onclick="playerCommand('next_subtitle');return false;">&gt;</button>
       </div>
       <div>
-        <button class="control_button" type"button" onclick="playerCommand('long_backward');return false;">&lt;&lt;</button>
-        <button class="control_button" type"button" onclick="playerCommand('short_backward');return false;">&lt;</button>
-        <button class="control_button" type"button" onclick="playerCommand('pause');return false;">||</button>
-        <button class="control_button" type"button" onclick="playerCommand('short_forward');return false;">&gt;</button>
-        <button class="control_button" type"button" onclick="playerCommand('long_forward');return false;">&gt;&gt;</button>
+        <button class="control_button btn btn-warning" type"button" onclick="playerCommand('long_backward');return false;">&lt;&lt;</button>
+        <button class="control_button btn btn-warning" type"button" onclick="playerCommand('short_backward');return false;">&lt;</button>
+        <button class="control_button btn btn-success" type"button" onclick="playerCommand('pause');return false;">||</button>
+        <button class="control_button btn btn-warning" type"button" onclick="playerCommand('short_forward');return false;">&gt;</button>
+        <button class="control_button btn btn-warning" type"button" onclick="playerCommand('long_forward');return false;">&gt;&gt;</button>
       </div>
-        <button class="control_button" type"button" onclick="playerCommand('prev_video');return false;">Prev</button>
-        <button class="control_button" type"button" onclick="playerCommand('stop');return false;">Stop</button>
-        <button class="control_button" type"button" onclick="playerCommand('next_video');return false;">Next</button>
       <div>
+        <button class="control_button btn btn-warning" type"button" onclick="playerCommand('prev_video');return false;">Prev</button>
+        <button class="control_button btn btn-danger" type"button" onclick="playerCommand('stop');return false;">Stop</button>
+        <button class="control_button btn btn-warning" type"button" onclick="playerCommand('next_video');return false;">Next</button>
+      </div>
     </div>
   </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
 </div>
 
 </body>
