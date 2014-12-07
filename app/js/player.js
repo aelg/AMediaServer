@@ -31,9 +31,10 @@ function update(){
     document.getElementById('playerInfo').innerHTML = s;
   }
   resize();
+  timerId = window.setTimeout(update, 5000);
 }
 var timerId = 0;
 function initPlayer(){
   update();
-  timerId = window.setInterval(update, 5000);
+  timerId = window.setTimeout(update, 5000);
 }
