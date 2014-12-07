@@ -7,17 +7,19 @@ This is barely working, but if you're interested feel free to ask or help.
 
 Setup
 
-Make sure you got a raspberry pi running Arch with setuptools and virtualenv.py (do $ easy_install virtualenv) and omxplayer installed.
-If unbuffer from the expect package is installed it will be used to get better latency in the played time of the video in the player. 
+Make sure you got a raspberry pi running Arch with `setuptools` and `virtualenv.py` (do `$ easy_install virtualenv`) and `omxplayer` installed.
+If `unbuffer` from the `expect` package is installed it will be used to get better latency in the played time of the video in the player. 
 
-Setup flask, in the repo root do:
+Goto the root of the repo and do:
+```
 $ virtualenv flask
 $ flask/bin/pip install flask
-
+```
 Open config.json and change the folders to be searched for videos.
 
-Run the server.
+Then run the server.
+```
 $ ./run.py
+```
 
-You should be able to connect to port 8080 on your RPi goto http://raspPi:8080/update search folder for videos.
-The go back to the first page http://raspPi:8080 to see a list of videos, click to play.
+You should be able to connect to port 8080 on your RPi, goto `http://raspPi:8080`. You'll need to search the folder for videos, use the link *Update Video List*.
