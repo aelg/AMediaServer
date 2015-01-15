@@ -16,8 +16,13 @@ body {
   display: inline;
 }
 .folderName {
+  color: #000;
   margin-left: 25px;
   display: inline;
+  text-decoration: none;
+}
+.folderName:hover {
+  color: #000;
 }
 .folder {
   padding-left: 10px;
@@ -26,19 +31,30 @@ body {
   padding-bottom: 5px;
   background-color: #ddf0dd;
   border-radius: 6px;
-  cursor: pointer;}
+  cursor: pointer;
+  display: block;
+}
 .folder:hover {
-  background-color: #ddffdd;}
+  background-color: #ddffdd;
+  color: #000;
+  text-decoration: none;
+}
 .file {
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
+  color: #000;
   background-color: #ffdddd;
   border-radius: 6px;
-  cursor: pointer;}
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+}
 .file:hover {
+  color: #000;
   background-color: #f0dddd;
-  text-decoration: underline;}
+  text-decoration: underline;
+}
 #player {
   text-align: center;
   position: absolute;

@@ -13,12 +13,12 @@ function getDirs(){
 function folderClick(event){
   resize();
   if(typeof this.expanded == 'undefined' || this.expanded == false){
-    this.innerHTML = '<div class="icon">- </div><div class="folderName">' + this.dirList.name + '</div>';
+    this.innerHTML = '<div class="icon">- </div><a class="folderName">' + this.dirList.name + '</a>';
     this.expanded = true;
     addFiles(this);
   }
   else{
-    this.innerHTML = '<div class="icon">+ </div><div class="folderName">' + this.dirList.name + '</div>';
+    this.innerHTML = '<div class="icon">+ </div><a class="folderName">' + this.dirList.name + '</a>';
     this.expanded = false;
   }
   event.stopPropagation();
@@ -33,14 +33,14 @@ function addFiles(div){
   var t = div.dirList;
   for(var i = 0; i < t.dirs.length; ++i){
     var elem = document.createElement('div')
-      elem.innerHTML = '<div class="icon">+ </div><div class="folderName">' + t.dirs[i].name + '</div>';
+      elem.innerHTML = '<div class="icon">+ </div><a class="folderName">' + t.dirs[i].name + '</a>';
     elem.onclick = folderClick;
     elem.dirList = t.dirs[i];
     elem.className = "folder"
       div.appendChild(elem);
   }
   for(var i = 0; i < t.files.length; ++i){
-    var elem = document.createElement('div')
+    var elem = document.createElement('a')
       elem.innerHTML = t.files[i].file;
     elem.onclick = fileClick;
     elem.file = t.files[i];
