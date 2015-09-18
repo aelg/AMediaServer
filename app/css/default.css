@@ -64,6 +64,8 @@ body {
   padding: 10px;
   bottom: 0px;}
 #playerInfo p{
+  font-size: 14px;
+  font-weight: bold;
   margin: 2px;
   padding 2px;
 }
@@ -87,3 +89,5 @@ body {
 .control_button{
   margin-left: 10px;
   margin-right: 10px;}
+div .progress{
+  margin-bottom: 10px;}

@@ -49,6 +49,7 @@ function addFiles(div){
   }
 }
 function resize(){
+  updateHidden();
   document.getElementById('fileList').style.bottom = document.getElementById('player').offsetHeight + 'px';
   document.getElementById('fileList').style.height = (document.getElementById('container').offsetHeight - document.getElementById('player').offsetHeight) + 'px';
 }

@@ -6,6 +6,7 @@ from flask import render_template
 from flask import redirect
 from flask import send_file
 from flask import jsonify
+from flask import send_from_directory
 
 bootstrapFolder = 'static/bootstrap/dist/'
 
@@ -13,6 +14,10 @@ bootstrapFolder = 'static/bootstrap/dist/'
 @app.route('/index')
 def index():
     return render_template('index.html')
+
+@app.route('/assets/<path:filename>')
+def send_assets(filename):
+    return send_from_directory('/home/aelg/projekt/AMediaServer/app/assets/', filename)
 
 @app.route('/js/fileList.js')
 def fileList_js():

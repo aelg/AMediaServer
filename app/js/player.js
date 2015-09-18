@@ -13,10 +13,10 @@ function update(){
     playedPercent = playedPercent >= 100 ? 100 : playedPercent;
 
     var s = '<p> Playing: ' + info.name + '</p>';
-    s += '<p>Subtitles: ' + (info.subtitleOn?'On':'Off');
+    s += '<p class="toggle">Subtitles: ' + (info.subtitleOn?'On':'Off');
     s += ' index: ' + info.subtitleIndex + '/' + info.subtitleCount;
     s += '</p>';
-    s += '<p>Time: ';
+    s += '<p class="toggle">Time: ';
     s += (date.getUTCHours()<10?'0':'') + date.getUTCHours() + ':';
     s += (date.getUTCMinutes()<10?'0':'') + date.getUTCMinutes() + ':';
     s += (date.getUTCSeconds()<10?'0':'') + date.getUTCSeconds();
@@ -37,4 +37,22 @@ var timerId = 0;
 function initPlayer(){
   update();
   timerId = window.setTimeout(update, 5000);
+}
+var toggleHidden = false;
+function toggleControls(event){
+  if(event.target.tagName.toLowerCase() == 'button') return;
+  toggleHidden = !toggleHidden;
+  elems = document.getElementsByClassName('toggle');
+  var newDisplay = toggleHidden?'none':'block';
+  for(var i = 0; i < elems.length; ++i){
+    elems[i].style.display = newDisplay;
+  }
+  resize();
+}
+function updateHidden(){
+  elems = document.getElementsByClassName('toggle');
+  var newDisplay = toggleHidden?'none':'block';
+  for(var i = 0; i < elems.length; ++i){
+    elems[i].style.display = newDisplay;
+  }
 }

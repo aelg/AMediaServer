@@ -46,9 +46,9 @@ window.onload = function(){
     <a href="/update">Update Video List</a><br /><br />
   </div>
 
-  <div id="player" class="jumbotron">
+  <div id="player" class="jumbotron" onclick="toggleControls(event);">
     <div id="playerInfo"></div>
-    <div id="controls">
+    <div id="controls" class="toggle">
       <div>
         <button class="control_button btn btn-primary" type"button" onclick="playerCommand('prev_subtitle');return false;">&lt;</button>
         <button class="control_button btn btn-primary" type"button" onclick="playerCommand('toggle_subtitle');return false;">Subtitles</button>
