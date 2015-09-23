@@ -1,11 +1,24 @@
 function playerCommand(cmd){
-  xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("GET", '/player/' + cmd, false);
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open("GET", '/player/' + cmd, true);
   xmlHttp.send(null);
-  return xmlHttp.response;
 }
-function update(){
-  var info = JSON.parse(playerCommand('get_info'));
+
+function getInfo(){
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.onreadystatechange = function(){
+    if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+      var info = JSON.parse(xmlHttp.responseText);
+      onInfo(info);
+    }
+  }
+  xmlHttp.open("GET", '/player/get_info', true);
+  xmlHttp.send(null);
+  timerId = window.setTimeout(getInfo, 2000);
+}
+
+
+function onInfo(info){
   if (typeof info.name != 'undefined'){
     var date = new Date(null);
     date.setSeconds(info.time);
@@ -31,12 +44,10 @@ function update(){
     document.getElementById('playerInfo').innerHTML = s;
   }
   resize();
-  timerId = window.setTimeout(update, 5000);
 }
 var timerId = 0;
 function initPlayer(){
-  update();
-  timerId = window.setTimeout(update, 5000);
+  getInfo();
 }
 var toggleHidden = false;
 function toggleControls(event){
