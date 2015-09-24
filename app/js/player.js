@@ -2,6 +2,7 @@ function playerCommand(cmd){
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open("GET", '/player/' + cmd, true);
   xmlHttp.send(null);
+  return true;
 }
 
 function getInfo(){
@@ -51,7 +52,7 @@ function initPlayer(){
 }
 var toggleHidden = false;
 function toggleControls(event){
-  if(event.target.tagName.toLowerCase() == 'button') return;
+  if(['button', 'i'].indexOf(event.target.tagName.toLowerCase()) != -1) return;
   toggleHidden = !toggleHidden;
   elems = document.getElementsByClassName('toggle');
   var newDisplay = toggleHidden?'none':'block';

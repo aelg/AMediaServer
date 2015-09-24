@@ -27,7 +27,7 @@ body {
 #player {
   text-align: center;
   position: absolute;
-  background-color: #eee;
+  background-color: #e6e3e0;
   width: 100%;
   margin: 0px;
   padding: 10px;
@@ -60,3 +60,6 @@ body {
   margin-right: 10px;}
 div .progress{
   margin-bottom: 10px;}
+a.list-group-item{
+  word-wrap: break-word;
+}

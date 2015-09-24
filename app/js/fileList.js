@@ -54,7 +54,7 @@ function playFileEventHandler(file){
 function createCurrentFolder(tree){
   var elem = document.createElement('a');
   elem.className = 'list-group-item active';
-  elem.innerHTML = tree.name?tree.name:'Update Video List';
+  elem.innerHTML = tree.name? '<i class="fa fa-chevron-left"></i>&nbsp; '+tree.path:'Update Video List';
   elem.href='';
   elem.onclick=setDirEventHandler(tree.parent);
   return elem;
