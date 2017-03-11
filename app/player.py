@@ -17,11 +17,14 @@ class Player(object):
     self.currentVideo = 0
     self.videoList = self.readVideos(globalData.config['videoListFile'])
 
+  def emptyVideoList(self):
+    return {'start': 0, 'dirs': [], 'files': [], 'path': '/'}
+
   def readVideos(self, videoFile):
     try:
       f = open(videoFile)
     except FileNotFoundError:
-      return '{}'
+        return self.emptyVideoList()
     return json.loads(f.read())
 
   def getVideoList(self):
@@ -65,7 +68,7 @@ class Player(object):
 
     videoDirs = globalData.config['videoDirs']
     index = 0
-    videos = {'start': index, 'dirs': [], 'files': [], 'path': '/'}
+    videos = self.emptyVideoList()
     for (name, v) in videoDirs.items():
       index, dirs = traverse(index, v)
       if dirs['start'] == dirs['end']: continue
