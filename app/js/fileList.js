@@ -44,7 +44,7 @@ function setDirEventHandler(tree){
   if(tree){
     return function (){setDir(tree); return false;};
   }
-  return function (){window.location='/update';};
+  return function (){window.location='/update'; return false;};
 }
 
 function playFileEventHandler(file){
