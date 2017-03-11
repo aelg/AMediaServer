@@ -17,7 +17,7 @@ def index():
 
 @app.route('/assets/<path:filename>')
 def send_assets(filename):
-    return send_from_directory('/home/aelg/projekt/AMediaServer/app/assets/', filename)
+    return send_from_directory('assets/', filename)
 
 @app.route('/js/fileList.js')
 def fileList_js():
