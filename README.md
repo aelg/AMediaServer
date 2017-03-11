@@ -8,7 +8,7 @@ This is barely working, but if you're interested feel free to ask or help.
 Setup
 
 Make sure you got a raspberry pi running Arch with `setuptools` and `virtualenv.py` (do `$ easy_install virtualenv`) and `omxplayer` installed.
-If `unbuffer` from the `expect` package is installed it will be used to get better latency in the played time of the video in the player. 
+If `unbuffer` from the `expect` package is installed it will be used to get better latency in the played time of the video in the player. It also seems that reading duration and subtitle information often fails without unbuffer.
 
 Goto the root of the repo and do:
 ```
