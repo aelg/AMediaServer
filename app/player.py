@@ -21,11 +21,11 @@ class Player(object):
     return {'start': 0, 'dirs': [], 'files': [], 'path': '/'}
 
   def readVideos(self, videoFile):
-    try:
+    if os.path.isfile(videoFile):
       f = open(videoFile)
-    except FileNotFoundError:
-        return self.emptyVideoList()
-    return json.loads(f.read())
+      return json.loads(f.read())
+    else :
+      return self.emptyVideoList()
 
   def getVideoList(self):
     return self.videoList
